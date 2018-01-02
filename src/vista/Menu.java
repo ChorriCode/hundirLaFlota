@@ -28,5 +28,17 @@ public class Menu {
 		return resultado;
 	}
 	
-
+	public void ataquePorTurno(Jugador jugador) {	
+		System.out.println("Jugador " + jugador.getNombre() + " ataca:");
+		System.out.println("Introduce coordenada X: ");
+		int x = scan.nextInt();
+		System.out.println("Introduce coordenada Y: ");
+		int y = scan.nextInt();
+		jugador.atacar(x, y);
+	}
+	
+	public void turnoJugadores(Jugador[] jugadores) {
+		
+		
+	}
 }

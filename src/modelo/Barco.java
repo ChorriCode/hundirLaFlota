@@ -35,12 +35,14 @@ public class Barco {
 	
 	
 
-	public void cambiarStateBarco(int index) {
+	public int cambiarStateBarco(int index) {
+		int puntos = 0;
 		switch (this.getStateForPositions()[index]) {
 		case 0 :
-			this.setStateForPositions(index,1);  
+			this.setStateForPositions(index,1); 
+			puntos = 1; //por tocado el jugador obtiene 1 punto
 			System.out.println("Tocado");
-			break;
+			return puntos;
 		case 1 :
 			this.setStateForPositions(index,1);
 			System.out.println("Tocado nuevamente");
@@ -50,11 +52,13 @@ public class Barco {
 			System.out.println("Este barco ya está hundido");
 			break;
 		}
+		return puntos;
 	}
 	
-	public void comprarBarcoHundido() {
+	public int comprarBarcoHundido() {
 		int contador = 0;
-		if (this.stateForPositions[0] == 0 || this.stateForPositions[0] == 1) { //si la primera posicion es 0 o 1, seguimos a ver si acabamos de hundirlo. Sino es que es 2 y ay está hundido
+		int puntos = 0;
+		if (this.stateForPositions[0] == 0 || this.stateForPositions[0] == 1) { //si la primera posicion es 0 o 1, seguimos a ver si acabamos de hundirlo. Sino es que es 2 y ya está hundido
 			for (int i = 0; i < this.size; i++) { //recorremos el array del estado del barco
 				if (this.stateForPositions[i] == 1) { //cada posicion del barco tocada aumentamos el contador de veces tocado
 					contador++;
@@ -66,11 +70,15 @@ public class Barco {
 				}
 				System.out.println(this.shipType + " hundido");
 				this.hundido = true;
+				puntos = 1; //por hundir el barco el jugador tiene 1 punto;
+				return puntos;
 			} else {
 				System.out.println(this.shipType + " aún no está hundido"); //si el contador de veces tocada no coincide con el tamaño del barco, aún no está hundido
+				return puntos;
 			}		
 		} else {
 			System.out.println(this.shipType + " ya está hundido");
+			return puntos;
 		}
 	}
 	

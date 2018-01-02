@@ -2,26 +2,15 @@ package modelo;
 
 public class Tablero {
 	
-	private static Tablero miTablero;
-	private Barco [][] tablero;
+	private static Barco [][] tablero;
 
-	private Tablero(int size) {
-		
+	public Tablero(int size) {	
 		tablero = new Barco[size][size];
 		vaciarTablero();
 	}
 	
-	public static Tablero tableroSingleton(int size) {
-		if (miTablero == null) {
-			miTablero = new Tablero(size);
-		} else {
-			System.out.println("No se peude crear el tablero");
-		}
-		return miTablero;
-	}
-	
-	
-	private void vaciarTablero() {
+
+	private static void vaciarTablero() {
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero.length; j++) {
 				tablero[i][j] = null;
@@ -29,7 +18,7 @@ public class Tablero {
 		}
 	}
 	// Muestra el tablero en consola null = "x", los barcos con su tama�o
-	public void verTablero() {
+	public static void verTablero() {
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero.length; j++) {
 				try { //usamos un try / catch ya que las posiciones del tablero que son agua, son barcos = null
@@ -47,15 +36,15 @@ public class Tablero {
 		}		
 	}
 
-	public Barco getPosicionEnTablero(int x, int y){
+	public static Barco getPosicionEnTablero(int x, int y){
 		return tablero[x][y];
 	}
 	
-	public Barco[][] getTablero() {
+	public static Barco[][] getTablero() {
 		return tablero;
 	}
 
-	public void setTablero(int x, int y, Barco miBarco) {
+	public static void setTablero(int x, int y, Barco miBarco) {
 		tablero[x][y] = miBarco;
 	}
 
