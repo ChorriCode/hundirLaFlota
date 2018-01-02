@@ -7,25 +7,26 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Tablero tablero= Tablero.tableroSingleton(10);
+		Tablero tablero= Tablero.tableroSingleton(10);	//Creamos el tablero
+		Partida partida = new Partida();				//Creamos la partida
+		Menu menu = new Menu();							//Creamos el menú
 		
-
-		Partida partida = new Partida();
+		menu.crearJugadores();
 		partida.ponerFlotaEnTablero(tablero, partida.getFlotaGuerra());
 		tablero.verTablero();
-		partida.atacar(tablero, 3, 0);
+		partida.atacar(tablero, 0, 0);
 		partida.atacar(tablero, 1, 0);
-		partida.atacar(tablero, 3, 1);
-		partida.atacar(tablero, 3, 2);
-		partida.atacar(tablero, 3, 3);
+		partida.atacar(tablero, 0, 1);
+		partida.atacar(tablero, 0, 2);
+		partida.atacar(tablero, 0, 3);
+		partida.atacar(tablero, 2, 0);
+		partida.atacar(tablero, 5, 0);
+		partida.atacar(tablero, 4, 1);
+		partida.atacar(tablero, 4, 2);
+		partida.atacar(tablero, 4, 3);
 		tablero.verTablero();
 		//System.out.println(tablero.getPosicionEnTablero(0, 0).buscarIndexPosicionAtacada(0,0));
-		System.out.println(
-		partida.generarPosicionAleatoria(1) + " " +
-		partida.generarPosicionAleatoria(2) + " " +
-		partida.generarPosicionAleatoria(3) + ""
-		);
-		
+
 		
 
 	} 
