@@ -8,7 +8,9 @@ public class Jugador {
 	private int id;
 	private String nombre;
 	private int turno = 0;
-	int puntuacion = 0;
+	private int puntuacion = 0;
+	private boolean aciertaUltimoAtaque = false;
+	
 	//List<Integer> registroAtaques = new ArrayList<>(); 
 	
 	public Jugador(int id, String nombre) {
@@ -23,9 +25,12 @@ public class Jugador {
 		if (posicionAtacada != null) { //comprobamos si la posición es distanta de agua es que hay barco
 			int index = posicionAtacada.buscarIndexPosicionAtacada(x, y); //buscar en el array de posiciones del barco atacado que estado tiene dicha posición		
 			if (index != -1) { //comprobamos que la posición del array no sea -1, eso significa que fue encontrada
-				this.puntuacion += posicionAtacada.cambiarStateBarco(index);
-				posicionAtacada.comprarBarcoHundido();
+				puntuacion += posicionAtacada.cambiarStateBarco(index);
+				aciertaUltimoAtaque = true;
+				posicionAtacada.comprobarBarcoHundido();
 			}
+		} else {
+			aciertaUltimoAtaque = false;
 		}
 		
 	}
@@ -54,9 +59,15 @@ public class Jugador {
 		this.turno = turno;
 	}
 
+	
+	
+	public boolean getAciertaUltimoAtaque() {
+		return aciertaUltimoAtaque;
+	}
+
 	@Override
 	public String toString() {
-		return "Jugador [id=" + id + ", nombre=" + nombre + ", turno=" + turno + "]";
+		return "Jugador [Id=" + id + ", Nombre=" + nombre + ", Puntuación=" + puntuacion + "]";
 	}
 	
 	

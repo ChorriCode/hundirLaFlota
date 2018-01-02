@@ -1,7 +1,10 @@
 package vista;
 
 import java.util.Scanner;
+
+import controlador.Partida;
 import modelo.Jugador;
+import modelo.Tablero;
 
 public class Menu {
 	
@@ -38,7 +41,26 @@ public class Menu {
 	}
 	
 	public void turnoJugadores(Jugador[] jugadores) {
-		
-		
+		int turno= 0;		
+		while (Partida.comprobarFlotaHundida(Partida.getFlotaGuerra()) != true) { // Mientras la flota no esté hundida hacemos turnos de juego
+			System.out.println("TURNO " + turno);
+			for (int i = 0; i < jugadores.length; i++) { //vamos rotando a los jugadores para que participen
+				do {
+					ataquePorTurno(jugadores[i]);
+					System.out.println("Acierta?: " + jugadores[i].getAciertaUltimoAtaque());
+					if (Partida.comprobarFlotaHundida(Partida.getFlotaGuerra()) == true) {break;}
+				} while (jugadores[i].getAciertaUltimoAtaque() == true); //si un jugador acierta vuelve a tirar en el mismo turno.
+			}
+			turno++;
+			Tablero.verTablero();
+		}
+		// la partida termino buscamos un método que muestre las puntuaciones y el ganador
+	}
+	
+	public void obtenerPuntuacion() {
+		Jugador [] participantes = Partida.getParticipantes();
+		for (Jugador jugador : participantes) {
+			System.out.println(jugador);
+		}
 	}
 }

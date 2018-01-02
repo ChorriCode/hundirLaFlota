@@ -17,7 +17,8 @@ public class Partida {
 	}
 	// Genera la flota de barcos que va ajugar la partida
 	private static Barco [] generarFlota() {
-		Barco [] resultado = {new Barco(1), new Barco(2), new Barco(3), new Barco(4)};
+		//Barco [] resultado = {new Barco(1), new Barco(2), new Barco(3), new Barco(4)};
+		Barco [] resultado = {new Barco(1), new Barco(2)};
 		return resultado;
 	}
 	
@@ -71,7 +72,7 @@ public class Partida {
 	}
 	*/
 	public static void sumarPuntuacionJugador(Jugador jugador, int puntos) {
-		jugador.setPuntuacion(puntos); // añadimos la puntuación a un jugador concreto (siendo tocado = 2 puntos y hundido = 1 punto)
+		jugador.setPuntuacion(puntos); // añadimos la puntuación a un jugador concreto
 	}
 	
 	public static boolean comprobarFlotaHundida(Barco [] flota) {
@@ -82,23 +83,27 @@ public class Partida {
 			}
 		}
 		if (contador == flota.length) { // si el contador es igual al numero de barcos de la flota es que todos están hundidos
-			flotaHundida = true;
-			return flotaHundida;				
+			Partida.flotaHundida = true;
+			System.out.println("*********** Flota Hundida - Fin Partida ***********");
+			return Partida.flotaHundida;				
 		} else { // si faltan barcos por hundir retorno el valor por defecto de flotaHundida que es false;		
-			return flotaHundida;
+			return Partida.flotaHundida;
 		}
 		
 	}
 
 	public static Barco[] getFlotaGuerra() {
-		return flotaGuerra;
+		return Partida.flotaGuerra;
 	}
 
 	public static void setFlotaGuerra(Barco[] flota) {
-		flotaGuerra = flota;
+		Partida.flotaGuerra = flota;
 	}
 	public static Jugador[] getParticipantes() {
-		return participantes;
+		return Partida.participantes;
+	}
+	public static boolean getFlotaHundida() {
+		return Partida.flotaHundida;
 	}
 	
 	

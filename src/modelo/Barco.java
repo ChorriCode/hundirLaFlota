@@ -35,7 +35,7 @@ public class Barco {
 	
 	
 
-	public int cambiarStateBarco(int index) {
+	public int cambiarStateBarco(int index) { //establece si el barco está tocado o hundido y devuelve 1 punto si lo tocas
 		int puntos = 0;
 		switch (this.getStateForPositions()[index]) {
 		case 0 :
@@ -55,7 +55,7 @@ public class Barco {
 		return puntos;
 	}
 	
-	public int comprarBarcoHundido() {
+	public int comprobarBarcoHundido() {
 		int contador = 0;
 		int puntos = 0;
 		if (this.stateForPositions[0] == 0 || this.stateForPositions[0] == 1) { //si la primera posicion es 0 o 1, seguimos a ver si acabamos de hundirlo. Sino es que es 2 y ya está hundido
