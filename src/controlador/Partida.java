@@ -84,7 +84,6 @@ public class Partida {
 		}
 		if (contador == flota.length) { // si el contador es igual al numero de barcos de la flota es que todos están hundidos
 			Partida.flotaHundida = true;
-			System.out.println("*********** Flota Hundida - Fin Partida ***********");
 			return Partida.flotaHundida;				
 		} else { // si faltan barcos por hundir retorno el valor por defecto de flotaHundida que es false;		
 			return Partida.flotaHundida;

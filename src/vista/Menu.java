@@ -45,6 +45,7 @@ public class Menu {
 		while (Partida.comprobarFlotaHundida(Partida.getFlotaGuerra()) != true) { // Mientras la flota no esté hundida hacemos turnos de juego
 			System.out.println("TURNO " + turno);
 			for (int i = 0; i < jugadores.length; i++) { //vamos rotando a los jugadores para que participen
+				System.out.println("----- Turno del jugador " + jugadores[i].getNombre() + " -----");
 				do {
 					ataquePorTurno(jugadores[i]);
 					System.out.println("Acierta?: " + jugadores[i].getAciertaUltimoAtaque());
@@ -54,7 +55,9 @@ public class Menu {
 			turno++;
 			Tablero.verTablero();
 		}
+		System.out.println("*********** Flota Hundida - Fin Partida ***********");
 		// la partida termino buscamos un método que muestre las puntuaciones y el ganador
+		obtenerPuntuacion();
 	}
 	
 	public void obtenerPuntuacion() {

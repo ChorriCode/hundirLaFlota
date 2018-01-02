@@ -33,9 +33,7 @@ public class Principal {
 				jugador.atacar(i, j);
 			}
 		}*/
-		Tablero.verTablero();
-		System.out.println(partida.comprobarFlotaHundida(partida.getFlotaGuerra()));
-		//System.out.println(tablero.getPosicionEnTablero(0, 0).buscarIndexPosicionAtacada(0,0));
-		menu.obtenerPuntuacion();
+
+		
 	} 
 }
