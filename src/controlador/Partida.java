@@ -7,27 +7,27 @@ import vista.Menu;
 
 public class Partida {
 	
-	private Barco [] flotaGuerra; // array de los barcos que van a posicionarse en el tablero
-	private Jugador [] participantes;
-	private boolean flotaHundida = false;
+	private static Barco [] flotaGuerra; // array de los barcos que van a posicionarse en el tablero
+	private static Jugador [] participantes;
+	private static boolean flotaHundida = false;
 	
 	public Partida() {			//CONTRUCTOR
 		flotaGuerra = generarFlota();
 		participantes = new Menu().crearJugadores();		
 	}
 	// Genera la flota de barcos que va ajugar la partida
-	private Barco [] generarFlota() {
+	private static Barco [] generarFlota() {
 		Barco [] resultado = {new Barco(1), new Barco(2), new Barco(3), new Barco(4)};
 		return resultado;
 	}
 	
-	public void verParticipantes() {
+	public static void verParticipantes() {
 		for (Jugador jugador : participantes) {
 			System.out.println(jugador);
 		}
 	}
 	
-	public void ponerFlotaEnTablero(Barco [] flota) {
+	public static void ponerFlotaEnTablero(Barco [] flota) {
 		/*  Esto coloca los barcos en la x=0 de las diferentes y
 		for (int i = 0; i < flota.length; i++) {
 			for (int j = 0; j < flota[i].getSize(); j++) {
@@ -50,7 +50,7 @@ public class Partida {
 		
 	}
 	
-	public int generarPosicionAleatoria(int sizeBarco){
+	public static int generarPosicionAleatoria(int sizeBarco){
 		int posicionAleatoria;
 		posicionAleatoria = (int) (Math.random() * (11 - sizeBarco)); //generamos una posicion aleatoria, solo la coordenada y dentro de la fila x que estemos en ese momento.
 																	  //la posicion tiene que ser inferior al tamaño del barco para que no se salga del tablero
@@ -70,11 +70,11 @@ public class Partida {
 		
 	}
 	*/
-	public void sumarPuntuacionJugador(Jugador jugador, int puntos) {
+	public static void sumarPuntuacionJugador(Jugador jugador, int puntos) {
 		jugador.setPuntuacion(puntos); // añadimos la puntuación a un jugador concreto (siendo tocado = 2 puntos y hundido = 1 punto)
 	}
 	
-	public boolean comprobarFlotaHundida(Barco [] flota) {
+	public static boolean comprobarFlotaHundida(Barco [] flota) {
 		int contador = 0;
 		for (Barco barco : flota) { // recorremos la flota y por cada barco hundido sumamos uno al contador
 			if (barco.getHundido() == true) {
@@ -90,14 +90,14 @@ public class Partida {
 		
 	}
 
-	public Barco[] getFlotaGuerra() {
+	public static Barco[] getFlotaGuerra() {
 		return flotaGuerra;
 	}
 
-	public void setFlotaGuerra(Barco[] flotaGuerra) {
-		this.flotaGuerra = flotaGuerra;
+	public static void setFlotaGuerra(Barco[] flota) {
+		flotaGuerra = flota;
 	}
-	public Jugador[] getParticipantes() {
+	public static Jugador[] getParticipantes() {
 		return participantes;
 	}
 	

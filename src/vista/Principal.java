@@ -13,9 +13,9 @@ public class Principal {
 		Tablero tablero= new Tablero(10);				//Creamos el tablero
 		Partida partida = new Partida();				//Creamos la partida
 		Menu menu = new Menu();							//Creamos el menú
-		partida.verParticipantes();
+		Partida.verParticipantes();
 		Jugador jugador = partida.getParticipantes()[0];
-		partida.ponerFlotaEnTablero(partida.getFlotaGuerra());
+		Partida.ponerFlotaEnTablero(partida.getFlotaGuerra());
 		Tablero.verTablero();
 		menu.ataquePorTurno(jugador);
 		/*jugador.atacar(1, 0);
