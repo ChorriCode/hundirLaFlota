@@ -1,6 +1,9 @@
 package vista;
 
+import java.util.Iterator;
+
 import controlador.Partida;
+import modelo.Jugador;
 import modelo.Tablero;
 
 public class Principal {
@@ -10,8 +13,8 @@ public class Principal {
 		Tablero tablero= Tablero.tableroSingleton(10);	//Creamos el tablero
 		Partida partida = new Partida();				//Creamos la partida
 		Menu menu = new Menu();							//Creamos el menú
-		
-		menu.crearJugadores();
+		partida.verParticipantes();
+
 		partida.ponerFlotaEnTablero(tablero, partida.getFlotaGuerra());
 		tablero.verTablero();
 		partida.atacar(tablero, 0, 0);

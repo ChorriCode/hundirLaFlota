@@ -27,6 +27,11 @@ public class Jugador {
 	public void setTurno(int turno) {
 		this.turno = turno;
 	}
+
+	@Override
+	public String toString() {
+		return "Jugador [id=" + id + ", nombre=" + nombre + ", turno=" + turno + "]";
+	}
 	
 	
 

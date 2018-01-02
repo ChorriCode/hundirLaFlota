@@ -1,15 +1,18 @@
 package controlador;
 
 import modelo.Barco;
+import modelo.Jugador;
 import modelo.Tablero;
+import vista.Menu;
 
 public class Partida {
 	
 	private Barco [] flotaGuerra; // array de los barcos que van a posicionarse en el tablero
-	
+	private Jugador [] participantes;
 	public Partida() {
 		
 		flotaGuerra = generarFlota();
+		participantes = new Menu().crearJugadores();
 		
 	}
 	// Genera la flota de barcos que va ajugar la partida
@@ -18,6 +21,11 @@ public class Partida {
 		return resultado;
 	}
 	
+	public void verParticipantes() {
+		for (Jugador jugador : participantes) {
+			System.out.println(jugador);
+		}
+	}
 	
 	public Tablero ponerFlotaEnTablero(Tablero tablero , Barco [] flota) {
 		/*  Esto coloca los barcos en la x=0 de las diferentes y

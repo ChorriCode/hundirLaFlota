@@ -23,7 +23,6 @@ public class Menu {
 			System.out.print("Nombre del Jugador " + i + ": ");
 			nombre = scan.next(); //nombre del jugador
 			resultado[i] = new Jugador(i,nombre); //creamos el jugador con su nombre y directamente lo metemos en el array resultado
-			System.out.println();
 		}
 		return resultado;
 	}
