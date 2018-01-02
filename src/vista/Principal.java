@@ -27,7 +27,13 @@ public class Principal {
 		partida.atacar(tablero, 4, 1);
 		partida.atacar(tablero, 4, 2);
 		partida.atacar(tablero, 4, 3);
+		/*for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				partida.atacar(tablero, i, j);
+			}
+		}*/
 		tablero.verTablero();
+		System.out.println(partida.comprobarFlotaHundida(partida.getFlotaGuerra()));
 		//System.out.println(tablero.getPosicionEnTablero(0, 0).buscarIndexPosicionAtacada(0,0));
 
 		

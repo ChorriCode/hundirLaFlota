@@ -9,11 +9,11 @@ public class Partida {
 	
 	private Barco [] flotaGuerra; // array de los barcos que van a posicionarse en el tablero
 	private Jugador [] participantes;
-	public Partida() {
-		
+	private boolean flotaHundida = false;
+	
+	public Partida() {			//CONTRUCTOR
 		flotaGuerra = generarFlota();
-		participantes = new Menu().crearJugadores();
-		
+		participantes = new Menu().crearJugadores();		
 	}
 	// Genera la flota de barcos que va ajugar la partida
 	private Barco [] generarFlota() {
@@ -67,6 +67,22 @@ public class Partida {
 				posicionAtacada.cambiarStateBarco(index);
 				posicionAtacada.comprarBarcoHundido();
 			}
+		}
+		
+	}
+	
+	public boolean comprobarFlotaHundida(Barco [] flota) {
+		int contador = 0;
+		for (Barco barco : flota) { // recorremos la flota y por cada barco hundido sumamos uno al contador
+			if (barco.getHundido() == true) {
+				contador++;
+			}
+		}
+		if (contador == flota.length) { // si el contador es igual al numero de barcos de la flota es que todos están hundidos
+			flotaHundida = true;
+			return flotaHundida;				
+		} else { // si faltan barcos por hundir retorno el valor por defecto de flotaHundida que es false;		
+			return flotaHundida;
 		}
 		
 	}

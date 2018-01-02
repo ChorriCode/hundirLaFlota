@@ -10,6 +10,7 @@ public class Menu {
 	public Jugador[] crearJugadores() {  //Cuando es contra la máquina elegimos hasta 4 jugadores
 		int opcion = 0;
 		String nombre;
+		System.out.println("HUNDIR LA FLOTA");
 		System.out.print("¿Cuantos jugadores participarán? [1 a 4]: ");
 		opcion = scan.nextInt();
 		while (opcion < 1 || opcion > 4) {
